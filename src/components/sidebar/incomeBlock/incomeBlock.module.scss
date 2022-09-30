@@ -2,4 +2,13 @@
   background-color: aqua;
   border: 1px solid black;
   flex: 0 1 45%;
+  .hide_button_block {
+    background-color: chartreuse;
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      display: block;
+    }
+  }
 }
