@@ -1,5 +1,5 @@
 import React from "react";
-import Order from "../../common/Order";
+import Order from "../../common/order/Order";
 import styles from "./ordersList.module.scss";
 
 const OrdersList = () => {
