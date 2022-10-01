@@ -2,4 +2,24 @@
   background-color: aqua;
   border: 1px solid black;
   flex: 0 1 45%;
+  .hide_button_block {
+    background-color: chartreuse;
+    padding-right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      background-color: rgb(157, 168, 164);
+      border: 1px solid black;
+    }
+  }
+  .buttons_block {
+    display: flex;
+    flex-direction: column;
+    button {
+      border: 1px solid black;
+      width: 50%;
+      height: 20px;
+      margin-bottom: 10px;
+    }
+  }
 }
