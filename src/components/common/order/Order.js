@@ -1,5 +1,5 @@
 import styles from "./order.module.scss";
-
+import { getDateFormat } from "../../../utils/datesFormater";
 /* "active": true,
    "cik": "0001090872",
    "composite_figi": "BBG000BWQYZ5",
@@ -14,17 +14,6 @@ import styles from "./order.module.scss";
    "type": "CS" */
 
 const Order = ({ props }) => {
-  const getDateFormat = (date) => {
-    const formated = new Date(date);
-    let formatedDay = formated.getDate();
-    if (formatedDay < 10) formatedDay = "0" + formatedDay;
-    let formatedMonth = formated.getMonth() + 1;
-    if (formatedMonth < 10) formatedMonth = "0" + formatedMonth;
-    const formatedDate = `${formatedDay}:${formatedMonth}:${formated.getFullYear().toString().slice(2)}`;
-    const formatedTime = `${formated.toTimeString().slice(0, 5)}`;
-    return formatedDate + " " + formatedTime;
-  };
-
   return (
     <div className={styles.wrapper}>
       <div>cik: {props.cik}</div>

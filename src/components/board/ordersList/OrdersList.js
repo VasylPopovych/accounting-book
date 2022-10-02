@@ -3,7 +3,7 @@ import Order from "../../common/order/Order";
 import styles from "./ordersList.module.scss";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
-import Loader from "../../common/loader/Loader";
+import Loader from "../../UI/loader/Loader";
 
 const OrdersList = () => {
   const { store } = useContext(Context);
