@@ -2,4 +2,24 @@
   border: 1px solid black;
   flex: 0 0 30px;
   background-color: chocolate;
+  display: flex;
+  justify-content: center;
+  .page {
+    padding: 2px;
+    width: 25px;
+    text-align: center;
+    margin-right: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: cadetblue;
+    }
+  }
+  .active_page {
+    padding: 2px;
+    width: 25px;
+    text-align: center;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: rgb(116, 193, 196);
+  }
 }

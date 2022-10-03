@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import PopUp from "../../common/popup/PopUp";
+import PopUp from "../../UI/popup/PopUp";
 import styles from "./incomeBlock.module.scss";
 import { Context } from "../../..";
 

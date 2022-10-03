@@ -1,18 +1,14 @@
 import axios from "axios";
+import { API_KEY } from "../constants/constants";
 
-export const BASE_URL = "https://community-zenpayroll.p.rapidapi.com/companies/%7Bcompany_id%7D/payrolls";
+const BASE_URL = `https://api.polygon.io/v3/reference/tickers?limit=200${API_KEY}`;
 
 const $api = axios.create({
   baseURL: BASE_URL,
-  params: { access_token: "undefined" },
-  headers: {
-    "X-RapidAPI-Key": "c11b82b3f3msha4084eab8da6a52p196792jsn42537fce3ad2",
-    "X-RapidAPI-Host": "community-zenpayroll.p.rapidapi.com",
-  },
 });
 
-export const request = async () => {
-  const res = await $api.get();
-  console.log("request send");
-  console.log(res.data);
-};
+export default class ordersService {
+  static getOrdersData() {
+    return $api.get();
+  }
+}
