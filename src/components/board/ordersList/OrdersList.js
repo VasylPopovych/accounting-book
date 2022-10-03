@@ -18,7 +18,7 @@ const OrdersList = () => {
     return (
       <main className={styles.wrapper}>
         <div className={styles.titles}> Titles</div>
-        {store.ordersData.map((elem) => (
+        {store.ordersData[store.selectedPage].map((elem) => (
           <Order props={elem} key={elem.ticker} />
         ))}
       </main>

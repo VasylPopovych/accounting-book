@@ -7,7 +7,11 @@ const StatusBar = () => {
   const { store } = useContext(Context);
 
   const countOrders = (key) => {
-    return store.ordersData.filter((order) => Object.values(order).includes(key)).length;
+    let result = store.ordersData.reduce(
+      (sum, page) => sum + page.filter((order) => Object.values(order).includes(key)).length,
+      0
+    );
+    return result;
   };
 
   if (store.ordersData) {

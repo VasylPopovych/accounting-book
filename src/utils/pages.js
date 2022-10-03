@@ -1,8 +1,10 @@
-export const countPages = (obj) => {
-  const nubmerOfPages = Math.ceil(Object.keys(obj).length / 12);
-  let pages = [];
-  for (let i = 1; 1 < nubmerOfPages; i++) {
-    pages.push(i);
+export const splitChunks = (data, chunkSize) => {
+  const chunks = [];
+  data = [].concat(...data);
+
+  while (data.length) {
+    chunks.push(data.splice(0, chunkSize));
   }
-  return pages;
+
+  return chunks;
 };
