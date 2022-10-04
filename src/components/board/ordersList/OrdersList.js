@@ -4,6 +4,7 @@ import styles from "./ordersList.module.scss";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 import Loader from "../../UI/loader/Loader";
+import uuid from "react-uuid";
 
 const OrdersList = () => {
   const { store } = useContext(Context);
@@ -19,7 +20,7 @@ const OrdersList = () => {
       <main className={styles.wrapper}>
         <div className={styles.titles}> Titles</div>
         {store.ordersData[store.selectedPage].map((elem) => (
-          <Order props={elem} key={elem.ticker} />
+          <Order props={elem} key={uuid()} />
         ))}
       </main>
     );
