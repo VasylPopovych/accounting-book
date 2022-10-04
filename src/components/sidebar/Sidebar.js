@@ -2,6 +2,8 @@ import { useState } from "react";
 import FiltersBlock from "./filtersBlock/FiltersBlock";
 import IncomeBlock from "./incomeBlock/IncomeBlock";
 import styles from "./sidebar.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Sidebar = () => {
   const [isVisible, setVisibility] = useState(true);
@@ -23,7 +25,9 @@ const Sidebar = () => {
   }
   return (
     <aside className={styles.hidden}>
-      <button onClick={handleChange}>show</button>
+      <div onClick={handleChange} className={styles.icon_wrapper}>
+        <FontAwesomeIcon icon={faArrowRight} size="lg" color="#5a8fff" />
+      </div>
     </aside>
   );
 };

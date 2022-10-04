@@ -1,14 +1,20 @@
 .wrapper {
   flex: 0 0 35%;
-  border: 1px solid black;
-  background: lightgray;
   display: flex;
   flex-direction: column;
+  padding-right: 10px;
 }
 
 .hidden {
-  border: 1px solid black;
-  background: lightgray;
+  padding-top: 12px;
   width: 50px;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, #5a8fff 0%, #003094 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  .icon_wrapper {
+    cursor: pointer;
+  }
 }
