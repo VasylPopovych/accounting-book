@@ -4,6 +4,7 @@ import styles from "./ordersList.module.scss";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 import Loader from "../../UI/loader/Loader";
+import uuid from "react-uuid";
 
 const OrdersList = () => {
   const { store } = useContext(Context);
@@ -14,12 +15,21 @@ const OrdersList = () => {
 
   if (store.isLoading) return <Loader />;
 
+  if (store.ordersData && store.ordersData.length == 0) {
+    return (
+      <main className={styles.wrapper}>
+        <div className={styles.titles}> Titles</div>
+        <h1>Orders Not Found!</h1>
+      </main>
+    );
+  }
+
   if (store.ordersData) {
     return (
       <main className={styles.wrapper}>
         <div className={styles.titles}> Titles</div>
         {store.ordersData[store.selectedPage].map((elem) => (
-          <Order props={elem} key={elem.ticker} />
+          <Order props={elem} key={uuid()} />
         ))}
       </main>
     );
@@ -28,7 +38,7 @@ const OrdersList = () => {
       <main className={styles.wrapper}>
         <div className={styles.titles}> Titles</div>
         <h1>
-          Error with loading orders. <span>{store.loadingError.message}</span> Please try again later.{" "}
+          Error with loading orders. <span>{store.loadingError.message}</span> Please try again later.
         </h1>
       </main>
     );
