@@ -15,6 +15,15 @@ const OrdersList = () => {
 
   if (store.isLoading) return <Loader />;
 
+  if (store.ordersData && store.ordersData.length == 0) {
+    return (
+      <main className={styles.wrapper}>
+        <div className={styles.titles}> Titles</div>
+        <h1>Orders Not Found!</h1>
+      </main>
+    );
+  }
+
   if (store.ordersData) {
     return (
       <main className={styles.wrapper}>
@@ -29,7 +38,7 @@ const OrdersList = () => {
       <main className={styles.wrapper}>
         <div className={styles.titles}> Titles</div>
         <h1>
-          Error with loading orders. <span>{store.loadingError.message}</span> Please try again later.{" "}
+          Error with loading orders. <span>{store.loadingError.message}</span> Please try again later.
         </h1>
       </main>
     );

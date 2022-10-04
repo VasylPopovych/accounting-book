@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import PopUp from "../../UI/popup/PopUp";
 import styles from "./incomeBlock.module.scss";
 import { Context } from "../../..";
