@@ -43,15 +43,15 @@ const FiltersBlock = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.heading}>
-        <h1>Фильтры</h1>
+        <h1>Filters</h1>
       </div>
       <div className={styles.sm_inputs_wrapper}>
         <div className={styles.container_input}>
-          <input type="text" placeholder="C" />
+          <input type="text" placeholder="From" />
           <img src={calendar_icon} />
         </div>
         <div className={styles.container_input}>
-          <input type="text" placeholder="По" />
+          <input type="text" placeholder="To" />
           <img src={calendar_icon} />
         </div>
       </div>
@@ -132,9 +132,9 @@ const FiltersBlock = () => {
               ticker,
             ]);
           }}>
-          Применить
+          Apply
         </button>
-        <button onClick={resetFilters}>Очистить</button>
+        <button onClick={resetFilters}>Reset</button>
         <img src={mark_icon} />
       </div>
       <span>* The search is case sensitive</span>

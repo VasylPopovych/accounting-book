@@ -20,56 +20,56 @@ const IncomeBlock = ({ props }) => {
     <div className={styles.wrapper}>
       <div className={styles.heading}>
         <div className={styles.heading_title_wrapper}>
-          <h1>Приходы</h1>
+          <h1>Tickers</h1>
           <div onClick={showPopUp} className={styles.icon}>
             <img src={cog} alt="icon-config" />
           </div>
         </div>
         <div className={styles.hide_button_wrapper}>
           <img src={hide_icon} alt="icon-hide" />
-          <button onClick={showSidebar}>Скрыть</button>
+          <button onClick={showSidebar}>Hide Panel</button>
         </div>
       </div>
       <div className={styles.buttons_block}>
         <button className={styles.active_button} onClick={showPopUp}>
-          Приход +
+          Tiker +
         </button>
         <button className={styles.disabled_button} onClick={showPopUp}>
-          Дублировать приход
+          Duplicate tiker
         </button>
         <div className={styles.sm_buttons_block}>
           <button className={styles.disabled_button} onClick={showPopUp}>
-            Провести
+            Make payment
           </button>
           <button className={styles.disabled_button} onClick={showPopUp}>
-            На удаление
+            To delete
           </button>
         </div>
         <div className={styles.sm_buttons_block_2}>
           <button className={styles.disabled_button} onClick={showPopUp}>
-            В списание
+            To write-off
           </button>
           <button className={styles.disabled_button} onClick={showPopUp}>
-            В перемещение
+            To move
           </button>
         </div>
         <button className={styles.disabled_button} onClick={showPopUp}>
-          Возвраты поставщику по приходу
+          Returns to supplier upon receipt
         </button>
         <div className={styles.sm_buttons_block_3}>
           <button className={styles.active_button} onClick={showPopUp}>
-            Импорт
+            Import
           </button>
           <button className={styles.active_button} onClick={showPopUp}>
-            Экспорт
+            Export
           </button>
           <button className={styles.active_button} onClick={showPopUp}>
-            Печать
+            Print
           </button>
         </div>
       </div>
       <div className={styles.wrapper_input}>
-        <input type="text" placeholder="Номер документа, название товара..." />
+        <input type="text" placeholder="Tiker number, tiker name..." />
         <img src={search_icon} onClick={showPopUp} />
       </div>
       <PopUp />
