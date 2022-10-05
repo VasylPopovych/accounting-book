@@ -4,6 +4,7 @@ import styles from "./incomeBlock.module.scss";
 import { Context } from "../../..";
 import cog from "../../../assets/cog.png";
 import hide_icon from "../../../assets/hide_icon.png";
+import search_icon from "../../../assets/search_icon.png";
 
 const IncomeBlock = ({ props }) => {
   const { store } = useContext(Context);
@@ -30,14 +31,48 @@ const IncomeBlock = ({ props }) => {
         </div>
       </div>
       <div className={styles.buttons_block}>
-        <button onClick={showPopUp}>One</button>
-        <button onClick={showPopUp}>Two</button>
-        <button onClick={showPopUp}>Three</button>
-        <button onClick={showPopUp}>Four</button>
-        <button onClick={showPopUp}>Five</button>
-        <button onClick={showPopUp}>Six</button>
-        <PopUp />
+        <button className={styles.active_button} onClick={showPopUp}>
+          Приход +
+        </button>
+        <button className={styles.disabled_button} onClick={showPopUp}>
+          Дублировать приход
+        </button>
+        <div className={styles.sm_buttons_block}>
+          <button className={styles.disabled_button} onClick={showPopUp}>
+            Провести
+          </button>
+          <button className={styles.disabled_button} onClick={showPopUp}>
+            На удаление
+          </button>
+        </div>
+        <div className={styles.sm_buttons_block_2}>
+          <button className={styles.disabled_button} onClick={showPopUp}>
+            В списание
+          </button>
+          <button className={styles.disabled_button} onClick={showPopUp}>
+            В перемещение
+          </button>
+        </div>
+        <button className={styles.disabled_button} onClick={showPopUp}>
+          Возвраты поставщику по приходу
+        </button>
+        <div className={styles.sm_buttons_block_3}>
+          <button className={styles.active_button} onClick={showPopUp}>
+            Импорт
+          </button>
+          <button className={styles.active_button} onClick={showPopUp}>
+            Экспорт
+          </button>
+          <button className={styles.active_button} onClick={showPopUp}>
+            Печать
+          </button>
+        </div>
       </div>
+      <div className={styles.wrapper_input}>
+        <input type="text" placeholder="Номер документа, название товара..." />
+        <img src={search_icon} onClick={showPopUp} />
+      </div>
+      <PopUp />
     </div>
   );
 };

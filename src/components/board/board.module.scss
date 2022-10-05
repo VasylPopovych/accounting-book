@@ -1,7 +1,7 @@
 .wrapper {
-  border: 1px solid black;
-  background: blue;
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow: auto;
+  border: 2px solid blue;
 }
