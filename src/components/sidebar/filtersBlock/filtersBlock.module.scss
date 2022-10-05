@@ -1,11 +1,97 @@
 .wrapper {
-  background-color: aquamarine;
-  border: 1px solid black;
+  padding-top: 3px;
   flex: 0 1 55%;
   display: flex;
   flex-direction: column;
-  button {
-    border: 1px solid black;
-    padding: 2px;
+  .heading {
+    h1 {
+      font-weight: 300;
+      font-size: 35px;
+      line-height: 43px;
+    }
   }
+  .sm_inputs_wrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 7px;
+    .container_input {
+      width: 100%;
+      border: 1px solid #c0bcbc;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      height: 28px;
+      input {
+        width: 90%;
+        background-color: #f4f4f4;
+        padding: 0px 5px;
+      }
+      img {
+        height: 12px;
+        width: 12px;
+        cursor: pointer;
+      }
+    }
+    .container_input:nth-child(1) {
+      margin-right: 12px;
+    }
+  }
+  .slider_wrapper {
+    cursor: pointer;
+    margin-bottom: 7px;
+  }
+  .container_bg_input {
+    width: 100%;
+    border: 1px solid #c0bcbc;
+    border-radius: 7px;
+    padding: 3px;
+    margin-bottom: 7px;
+    height: 28px;
+    input {
+      width: 100%;
+      background-color: #f4f4f4;
+      padding: 0px 5px;
+    }
+  }
+  .buttons_wrapper {
+    display: flex;
+    margin-bottom: 7px;
+    button {
+      flex: 1 1 45%;
+      margin-right: 12px;
+      border-radius: 7px;
+      background: linear-gradient(#f4f4f4, #f4f4f4) padding-box, linear-gradient(to bottom, #5a8fff, #003094) border-box;
+      border: 1px solid transparent;
+      color: #003094;
+      padding: 6px 24px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    img {
+      flex: 1 1 10%;
+      cursor: pointer;
+    }
+    button:nth-child(1) {
+      background: linear-gradient(180deg, #5a8fff 0%, #003094 100%);
+      color: #ffffff;
+    }
+  }
+  span {
+    font-size: 12px;
+    line-height: 15px;
+    color: #5a8fff;
+  }
+}
+
+//common styles
+input {
+  background-color: #f4f4f4;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+  color: #919090;
+  border: none;
+  outline: none;
 }
