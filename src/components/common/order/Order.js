@@ -1,32 +1,27 @@
 import styles from "./order.module.scss";
 import { getDateFormat } from "../../../utils/datesFormater";
-/* "active": true,
-   "cik": "0001090872",
-   "composite_figi": "BBG000BWQYZ5",
-   "currency_name": "usd",
-   "last_updated_utc": "2021-04-25T00:00:00Z",
-   "locale": "us",
-   "market": "stocks",
-   "name": "Agilent Technologies Inc.",
-   "primary_exchange": "XNYS",
-   "share_class_figi": "BBG001SCTQY4",
-   "ticker": "A",
-   "type": "CS" */
 
 const Order = ({ props }) => {
+  const date = getDateFormat(props.last_updated_utc).slice(0, 8);
+  const time = getDateFormat(props.last_updated_utc).slice(9);
+
   return (
     <div className={styles.wrapper}>
-      <div>cik: {props.cik}</div>
-      <div>composite_figi: {props.composite_figi}</div>
-      <div>currency_name: {props.currency_name}</div>
-      <div>last_updated_utc: {getDateFormat(props.last_updated_utc)}</div>
-      <div>locale: {props.locale}</div>
-      <div>market :{props.market}</div>
-      <div>name: {props.name}</div>
-      <div>primary_exchange: {props.primary_exchange}</div>
-      <div>share_class_figi: {props.share_class_figi}</div>
-      <div>ticker: {props.ticker}</div>
-      <div>type: {props.type}</div>
+      <input className={styles.checkbox} type="checkbox" />
+      <div>{props.cik}</div>
+      <div>{props.composite_figi}</div>
+      <div className={styles.currency_name}>{props.currency_name}</div>
+      <div>
+        {date}
+        <span className={styles.time}>{time}</span>
+      </div>
+      <div>{props.locale}</div>
+      <div>{props.market}</div>
+      <div className={styles.name}>{props.name}</div>
+      <div>{props.primary_exchange}</div>
+      <div>{props.share_class_figi}</div>
+      <div>{props.ticker}</div>
+      <div>{props.type}</div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 import Loader from "../../UI/loader/Loader";
 import uuid from "react-uuid";
+import { dataKeys } from "../../../constants/constants";
 
 const OrdersList = () => {
   const { store } = useContext(Context);
@@ -18,8 +19,17 @@ const OrdersList = () => {
   if (store.ordersData && store.ordersData.length == 0) {
     return (
       <main className={styles.wrapper}>
-        <div className={styles.titles}> Titles</div>
-        <h1>Orders Not Found!</h1>
+        <div className={styles.titles_wrapper}>
+          <div className={styles.checkbox}>check</div>
+          {dataKeys.map((key) => (
+            <div key={key} className={styles.titles_item}>
+              {key}
+            </div>
+          ))}
+        </div>
+        <div className={styles.not_found_items}>
+          <h1>Orders Not Found</h1>
+        </div>
       </main>
     );
   }
@@ -27,7 +37,14 @@ const OrdersList = () => {
   if (store.ordersData) {
     return (
       <main className={styles.wrapper}>
-        <div className={styles.titles}> Titles</div>
+        <div className={styles.titles_wrapper}>
+          <input className={styles.checkbox} type="checkbox" />
+          {dataKeys.map((key) => (
+            <div key={key} className={styles.titles_item}>
+              {key}
+            </div>
+          ))}
+        </div>
         {store.ordersData[store.selectedPage].map((elem) => (
           <Order props={elem} key={uuid()} />
         ))}
@@ -36,10 +53,11 @@ const OrdersList = () => {
   } else if (store.loadingError) {
     return (
       <main className={styles.wrapper}>
-        <div className={styles.titles}> Titles</div>
-        <h1>
-          Error with loading orders. <span>{store.loadingError.message}</span> Please try again later.
-        </h1>
+        <div className={styles.wrapper_error}>
+          <h1>Error with loading orders</h1>
+          <h2>{store.loadingError.message}</h2>
+          <h3>Please try again later</h3>
+        </div>
       </main>
     );
   }

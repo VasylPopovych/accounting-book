@@ -17,12 +17,16 @@ const Pagination = () => {
         className={styles.wrapper}
         pageClassName={styles.page}
         activeClassName={styles.active_page}
+        breakClassName={styles.ellipsis}
+        previousClassName={styles.prev_page}
+        nextClassName={styles.next_page}
+        disabledClassName={styles.disabled}
         breakLabel="..."
         nextLabel=" next  >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         pageCount={store.ordersData.length}
-        previousLabel=" <  previous"
+        previousLabel=" <  prev  "
         renderOnZeroPageCount={undefined}
       />
     );

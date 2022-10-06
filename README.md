@@ -1,3 +1,5 @@
+#### App Using API - https://polygon.io/
+
 ## Used Stack:
 
 #### Create React App
