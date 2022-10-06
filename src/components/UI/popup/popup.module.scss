@@ -1,0 +1,35 @@
+.wrapper {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(170, 165, 165, 0.6);
+  .popup {
+    background-color: #b4b4b4;
+    border: 1px solid #999898;
+    border-radius: 7px;
+    height: 200px;
+    width: 300px;
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+    left: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      background-color: burlywood;
+      width: 100px;
+      height: 40px;
+      border-radius: 7px;
+      box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.75);
+      &:hover {
+        background-color: rgb(236, 196, 144);
+      }
+    }
+  }
+}
