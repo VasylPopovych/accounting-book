@@ -28,7 +28,7 @@ const OrdersList = () => {
           ))}
         </div>
         <div className={styles.not_found_items}>
-          <h1>Orders Not Found</h1>
+          <h1>Tikers Not Found</h1>
         </div>
       </main>
     );
