@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import styles from "./filtersBlock.module.scss";
 import { Context } from "../../..";
 import calendar_icon from "../../../assets/calendar_icon.png";
-import slider from "../../../assets/slider.png";
 import mark_icon from "../../../assets/mark_icon.png";
 
 const FiltersBlock = () => {
@@ -54,9 +53,6 @@ const FiltersBlock = () => {
           <input type="text" placeholder="To" />
           <img src={calendar_icon} />
         </div>
-      </div>
-      <div className={styles.slider_wrapper}>
-        <img src={slider} />
       </div>
       <div className={styles.sm_inputs_wrapper}>
         <div className={styles.container_input}>

@@ -20,7 +20,7 @@ const IncomeBlock = ({ props }) => {
     <div className={styles.wrapper}>
       <div className={styles.heading}>
         <div className={styles.heading_title_wrapper}>
-          <h1>Tickers</h1>
+          <h1>Tikers</h1>
           <div onClick={showPopUp} className={styles.icon}>
             <img src={cog} alt="icon-config" />
           </div>

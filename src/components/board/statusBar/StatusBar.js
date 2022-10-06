@@ -17,28 +17,23 @@ const StatusBar = () => {
   if (store.ordersData) {
     return (
       <div className={styles.wrapper}>
-        <div className={styles.status_bar_wrapper}>
-          <div className={styles.status_bar_item}>
-            Active Tikers: <span>{countOrders(true)} шт.</span>
-          </div>
-          <div className={styles.status_bar_item}>
-            Stocks: <span>{countOrders("stocks")} шт.</span>
-          </div>
-          <div className={styles.status_bar_item}>
-            UNITs: <span>{countOrders("UNIT")} шт.</span>
-          </div>
+        <div className={styles.status_bar_item}>
+          Active Tikers: <span>{countOrders(true)} </span>
+        </div>
+        <div className={styles.status_bar_item}>
+          Stocks: <span>{countOrders("stocks")} </span>
+        </div>
+        <div className={styles.status_bar_item}>
+          UNITs: <span>{countOrders("UNIT")} </span>
         </div>
       </div>
     );
   }
   return (
     <div className={styles.wrapper}>
-      <div className={styles.status_bar_wrapper}>
-        <div className={styles.status_bar_item}>Active Tikers: </div>
-        <div className={styles.status_bar_item}>Stocks: </div>
-        <div className={styles.status_bar_item}>UNITs: </div>
-      </div>
-      <div className={styles.titles}> Titles</div>
+      <div className={styles.status_bar_item}>Active Tikers: </div>
+      <div className={styles.status_bar_item}>Stocks: </div>
+      <div className={styles.status_bar_item}>UNITs: </div>
     </div>
   );
 };

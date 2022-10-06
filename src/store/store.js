@@ -6,7 +6,7 @@ import { filterData } from "../utils/filters";
 export default class Store {
   isShowPopUp = false;
   ordersData = null;
-  loadingError = null;
+  loadingError = false;
   isLoading = false;
   selectedPage = 0;
 
