@@ -1,9 +1,10 @@
 .wrapper {
-  flex: 1 1 600px;
+  flex: 1 1 615px;
   display: flex;
   flex-direction: column;
   overflow: auto;
   padding-right: 10px;
+  margin-bottom: 9px;
   .titles_wrapper {
     position: sticky;
     top: 0px;

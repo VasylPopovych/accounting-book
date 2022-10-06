@@ -5,8 +5,6 @@ const Order = ({ props }) => {
   const date = getDateFormat(props.last_updated_utc).slice(0, 8);
   const time = getDateFormat(props.last_updated_utc).slice(9);
 
-  console.log(date);
-
   return (
     <div className={styles.wrapper}>
       <input className={styles.checkbox} type="checkbox" />
