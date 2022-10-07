@@ -8,14 +8,18 @@ body {
   padding: 30px 50px;
   background: #f4f4f4;
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
   }
 
   ::-webkit-scrollbar-thumb {
     background: #b4b4b4;
-    border-radius: 5px;
+    border-radius: 3px;
     opacity: 0.2;
+    background-clip: padding-box;
+    border-left: 6px solid transparent;
+    border-top: 6px solid transparent;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-track {
