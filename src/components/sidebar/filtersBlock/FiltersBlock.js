@@ -6,39 +6,52 @@ import mark_icon from "../../../assets/mark_icon.png";
 
 const FiltersBlock = () => {
   const { store } = useContext(Context);
+  const [filtersValues, setFilterValue] = useState({
+    cik: "",
+    composite_figi: "",
+    currency_name: "",
+    last_updated_utc_from: "",
+    last_updated_utc_to: "",
+    locale: "",
+    market: "",
+    name: "",
+    primary_exchange: "",
+    share_class_figi: "",
+    ticker: "",
+    type: "",
+  });
 
-  const [currencyName, setCurrencyName] = useState("");
-  const [locale, setLocale] = useState("");
-  const [market, setMarket] = useState("");
-  const [cik, setCik] = useState("");
-  const [compositeFigi, setCompositeFigi] = useState("");
-  const [name, setName] = useState("");
-  const [primaryExchange, setPrimaryExchange] = useState("");
-  const [shareClassFigi, setShareClassFigi] = useState("");
-  const [ticker, setTicker] = useState("");
-  const [type, setType] = useState("");
+  const showPopUp = () => {
+    store.setShowPopUp(true);
+  };
 
-  const filterData = (data) => {
-    let arr = [];
-    for (let d of data) {
-      if (d) arr.push(d);
-    }
-    store.getFilteredData(arr);
+  const handleChange = (prop) => (event) => {
+    setFilterValue({ ...filtersValues, [prop]: event.target.value });
+  };
+
+  const filterData = () => {
+    const notEmptyValues = Object.entries(filtersValues).filter((entrie) => !!entrie[1]);
+    store.getFilteredData(notEmptyValues);
   };
 
   const resetFilters = () => {
     store.getData();
-    setCurrencyName("");
-    setLocale("");
-    setMarket("");
-    setType("");
-    setCik("");
-    setCompositeFigi("");
-    setName("");
-    setPrimaryExchange("");
-    setShareClassFigi("");
-    setTicker("");
+    setFilterValue({
+      cik: "",
+      composite_figi: "",
+      currency_name: "",
+      last_updated_utc_from: "",
+      last_updated_utc_to: "",
+      locale: "",
+      market: "",
+      name: "",
+      primary_exchange: "",
+      share_class_figi: "",
+      ticker: "",
+      type: "",
+    });
   };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.heading}>
@@ -46,12 +59,22 @@ const FiltersBlock = () => {
       </div>
       <div className={styles.sm_inputs_wrapper}>
         <div className={styles.container_input}>
-          <input type="text" placeholder="From" />
-          <img src={calendar_icon} />
+          <input
+            type="text"
+            placeholder="From: yyyy-mm-dd"
+            value={filtersValues.last_updated_utc_from}
+            onChange={handleChange("last_updated_utc_from")}
+          />
+          <img onClick={showPopUp} src={calendar_icon} />
         </div>
         <div className={styles.container_input}>
-          <input type="text" placeholder="To" />
-          <img src={calendar_icon} />
+          <input
+            type="text"
+            placeholder="To: yyyy-mm-dd"
+            value={filtersValues.last_updated_utc_to}
+            onChange={handleChange("last_updated_utc_to")}
+          />
+          <img onClick={showPopUp} src={calendar_icon} />
         </div>
       </div>
       <div className={styles.sm_inputs_wrapper}>
@@ -59,23 +82,23 @@ const FiltersBlock = () => {
           <input
             type="text"
             placeholder="Currency"
-            value={currencyName}
-            onChange={(e) => setCurrencyName(e.target.value)}
+            value={filtersValues.currency_name}
+            onChange={handleChange("currency_name")}
           />
         </div>
         <div className={styles.container_input}>
-          <input type="text" placeholder="Locale" value={locale} onChange={(e) => setLocale(e.target.value)} />
+          <input type="text" placeholder="Locale" value={filtersValues.locale} onChange={handleChange("locale")} />
         </div>
       </div>
       <div className={styles.container_bg_input}>
-        <input type="text" placeholder="Market" value={market} onChange={(e) => setMarket(e.target.value)} />
+        <input type="text" placeholder="Market" value={filtersValues.market} onChange={handleChange("market")} />
       </div>
       <div className={styles.sm_inputs_wrapper}>
         <div className={styles.container_input}>
-          <input type="text" placeholder="Cik" value={cik} onChange={(e) => setCik(e.target.value)} />
+          <input type="text" placeholder="Cik" value={filtersValues.cik} onChange={handleChange("cik")} />
         </div>
         <div className={styles.container_input}>
-          <input type="text" placeholder="Type" value={type} onChange={(e) => setType(e.target.value)} />
+          <input type="text" placeholder="Type" value={filtersValues.type} onChange={handleChange("type")} />
         </div>
       </div>
       <div className={styles.sm_inputs_wrapper}>
@@ -83,12 +106,12 @@ const FiltersBlock = () => {
           <input
             type="text"
             placeholder="Composite Figi"
-            value={compositeFigi}
-            onChange={(e) => setCompositeFigi(e.target.value)}
+            value={filtersValues.composite_figi}
+            onChange={handleChange("composite_figi")}
           />
         </div>
         <div className={styles.container_input}>
-          <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="text" placeholder="Name" value={filtersValues.name} onChange={handleChange("name")} />
         </div>
       </div>
       <div className={styles.sm_inputs_wrapper}>
@@ -96,42 +119,26 @@ const FiltersBlock = () => {
           <input
             type="text"
             placeholder="Primary Exchange"
-            value={primaryExchange}
-            onChange={(e) => setPrimaryExchange(e.target.value)}
+            value={filtersValues.primary_exchange}
+            onChange={handleChange("primary_exchange")}
           />
         </div>
         <div className={styles.container_input}>
           <input
             type="text"
             placeholder="Share Class Figi"
-            value={shareClassFigi}
-            onChange={(e) => setShareClassFigi(e.target.value)}
+            value={filtersValues.share_class_figi}
+            onChange={handleChange("share_class_figi")}
           />
         </div>
       </div>
       <div className={styles.container_bg_input}>
-        <input type="text" placeholder="Ticker" value={ticker} onChange={(e) => setTicker(e.target.value)} />
+        <input type="text" placeholder="Ticker" value={filtersValues.ticker} onChange={handleChange("ticker")} />
       </div>
       <div className={styles.buttons_wrapper}>
-        <button
-          onClick={() => {
-            filterData([
-              currencyName,
-              locale,
-              market,
-              type,
-              cik,
-              compositeFigi,
-              name,
-              primaryExchange,
-              shareClassFigi,
-              ticker,
-            ]);
-          }}>
-          Apply
-        </button>
+        <button onClick={filterData}>Apply</button>
         <button onClick={resetFilters}>Reset</button>
-        <img src={mark_icon} />
+        <img onClick={showPopUp} src={mark_icon} />
       </div>
       <span>* The search is case sensitive</span>
     </div>
