@@ -36,10 +36,11 @@ export default class Store {
 
   async getFilteredData(data) {
     try {
+      this.setError(null);
       this.setLoadingStatus(true);
+      this.setSelectedPage(0);
       const dataFromAPI = await ordersService.getOrdersData();
       this.setOrdersDataToStore(splitChunks(filterData(dataFromAPI.data.results, data), 20));
-      this.setSelectedPage(0);
     } catch (error) {
       this.setError(error);
       console.log(error);
@@ -50,7 +51,9 @@ export default class Store {
 
   async getData() {
     try {
+      this.setError(null);
       this.setLoadingStatus(true);
+      this.setSelectedPage(0);
       const dataFromAPI = await ordersService.getOrdersData();
       this.setOrdersDataToStore(splitChunks(dataFromAPI.data.results, 20));
     } catch (error) {
