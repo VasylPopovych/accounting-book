@@ -16,7 +16,12 @@ const Order = ({ props }) => {
         <span className={styles.time}>{time}</span>
       </div>
       <div>{props.locale}</div>
-      <div>{props.market}</div>
+      <div
+        className={
+          (props.market === "stocks" && styles.market_stocks) || (props.market === "otc" && styles.market_otc)
+        }>
+        {props.market}
+      </div>
       <div className={styles.name}>{props.name}</div>
       <div>{props.primary_exchange}</div>
       <div>{props.share_class_figi}</div>
