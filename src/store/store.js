@@ -1,11 +1,11 @@
 import { makeAutoObservable } from "mobx";
-import ordersService from "../services/ordersService";
+import tikersService from "../services/tikersService";
 import { splitChunks } from "../utils/pages";
 import { filterData } from "../utils/filters";
 
 export default class Store {
   isShowPopUp = false;
-  ordersData = null;
+  tikersData = null;
   loadingError = false;
   isLoading = false;
   selectedPage = 0;
@@ -22,8 +22,8 @@ export default class Store {
     this.isShowPopUp = bool;
   }
 
-  setOrdersDataToStore(data) {
-    this.ordersData = data;
+  setTikersDataToStore(data) {
+    this.tikersData = data;
   }
 
   setLoadingStatus(bool) {
@@ -39,8 +39,8 @@ export default class Store {
       this.setError(null);
       this.setLoadingStatus(true);
       this.setSelectedPage(0);
-      const dataFromAPI = await ordersService.getOrdersData();
-      this.setOrdersDataToStore(splitChunks(filterData(dataFromAPI.data.results, data), 20));
+      const dataFromAPI = await tikersService.getTikersData();
+      this.setTikersDataToStore(splitChunks(filterData(dataFromAPI.data.results, data), 20));
     } catch (error) {
       this.setError(error);
       console.log(error);
@@ -54,8 +54,8 @@ export default class Store {
       this.setError(null);
       this.setLoadingStatus(true);
       this.setSelectedPage(0);
-      const dataFromAPI = await ordersService.getOrdersData();
-      this.setOrdersDataToStore(splitChunks(dataFromAPI.data.results, 20));
+      const dataFromAPI = await tikersService.getTikersData();
+      this.setTikersDataToStore(splitChunks(dataFromAPI.data.results, 20));
     } catch (error) {
       this.setError(error);
       console.log(error);

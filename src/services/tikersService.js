@@ -7,8 +7,8 @@ const $api = axios.create({
   baseURL: BASE_URL,
 });
 
-export default class ordersService {
-  static getOrdersData() {
+export default class tikersService {
+  static getTikersData() {
     return $api.get();
   }
 }

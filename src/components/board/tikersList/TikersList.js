@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
-import Order from "../../common/order/Order";
-import styles from "./ordersList.module.scss";
+import Tiker from "../../common/tiker/Tiker";
+import styles from "./tikersList.module.scss";
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 import Loader from "../../UI/loader/Loader";
 import uuid from "react-uuid";
 import { dataKeys } from "../../../constants/constants";
 
-const OrdersList = () => {
+const TikersList = () => {
   const { store } = useContext(Context);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const OrdersList = () => {
     );
   }
 
-  if (store.ordersData && store.ordersData.length == 0) {
+  if (store.tikersData && store.tikersData.length == 0) {
     return (
       <main className={styles.wrapper}>
         <div className={styles.titles_wrapper}>
@@ -46,7 +46,7 @@ const OrdersList = () => {
     );
   }
 
-  if (store.ordersData) {
+  if (store.tikersData) {
     return (
       <main className={styles.wrapper}>
         <div className={styles.titles_wrapper}>
@@ -57,12 +57,12 @@ const OrdersList = () => {
             </div>
           ))}
         </div>
-        {store.ordersData[store.selectedPage].map((elem) => (
-          <Order props={elem} key={uuid()} />
+        {store.tikersData[store.selectedPage].map((elem) => (
+          <Tiker props={elem} key={uuid()} />
         ))}
       </main>
     );
   }
 };
 
-export default observer(OrdersList);
+export default observer(TikersList);

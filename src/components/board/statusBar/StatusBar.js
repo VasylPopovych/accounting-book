@@ -6,25 +6,25 @@ import { observer } from "mobx-react-lite";
 const StatusBar = () => {
   const { store } = useContext(Context);
 
-  const countOrders = (key) => {
-    let result = store.ordersData.reduce(
-      (sum, page) => sum + page.filter((order) => Object.values(order).includes(key)).length,
+  const countTikers = (key) => {
+    let result = store.tikersData.reduce(
+      (sum, page) => sum + page.filter((tiker) => Object.values(tiker).includes(key)).length,
       0
     );
     return result;
   };
 
-  if (store.ordersData) {
+  if (store.tikersData) {
     return (
       <div className={styles.wrapper}>
         <div className={styles.status_bar_item}>
-          Active Tikers: <span>{countOrders(true)} </span>
+          Active Tikers: <span>{countTikers(true)} </span>
         </div>
         <div className={styles.status_bar_item}>
-          Stocks: <span>{countOrders("stocks")} </span>
+          Stocks: <span>{countTikers("stocks")} </span>
         </div>
         <div className={styles.status_bar_item}>
-          UNITs: <span>{countOrders("UNIT")} </span>
+          UNITs: <span>{countTikers("UNIT")} </span>
         </div>
       </div>
     );
