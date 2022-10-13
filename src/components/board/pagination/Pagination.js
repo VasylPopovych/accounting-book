@@ -11,7 +11,7 @@ const Pagination = () => {
     store.setSelectedPage(event.selected);
   };
 
-  if (store.ordersData) {
+  if (store.tikersData) {
     return (
       <ReactPaginate
         className={styles.wrapper}
@@ -25,7 +25,7 @@ const Pagination = () => {
         nextLabel=" next  >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
-        pageCount={store.ordersData.length}
+        pageCount={store.tikersData.length}
         previousLabel=" <  prev  "
         renderOnZeroPageCount={undefined}
       />

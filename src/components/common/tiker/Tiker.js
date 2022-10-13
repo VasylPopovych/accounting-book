@@ -1,7 +1,7 @@
-import styles from "./order.module.scss";
+import styles from "./tiker.module.scss";
 import { getDateFormat } from "../../../utils/datesFormater";
 
-const Order = ({ props }) => {
+const Tiker = ({ props }) => {
   const date = getDateFormat(props.last_updated_utc).slice(0, 8);
   const time = getDateFormat(props.last_updated_utc).slice(9);
 
@@ -31,4 +31,4 @@ const Order = ({ props }) => {
   );
 };
 
-export default Order;
+export default Tiker;
